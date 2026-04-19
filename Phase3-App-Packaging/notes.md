@@ -25,3 +25,20 @@
 - Content must be distributed to DPs before deployment
 - UNC paths (\\server\share) are required — SCCM accesses content over the network
 - PSADT v4 uses Invoke-AppDeployToolkit.ps1 (v3 used Deploy-Application.ps1)
+# Phase 3 Notes - Application Packaging
+
+## What Went Well
+- 7-Zip MSI packaging straightforward
+- PSADT v4 template scaffolded correctly
+- Local testing of PSADT package succeeded
+
+## Issues Encountered
+- PSADT v4 has different structure than v3 (Invoke-AppDeployToolkit.ps1 vs Deploy-Application.ps1)
+- Had to use Install-Module to get proper v4 template
+- UNC paths required for SCCM content location (not local paths)
+
+## Key Takeaways
+- Always test silent install locally before putting in SCCM
+- MSI product codes are found in the installer or registry after install
+- PSADT adds professional features beyond basic silent install
+- UNC paths are required because SCCM accesses content over the network
